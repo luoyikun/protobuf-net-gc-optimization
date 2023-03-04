@@ -20,7 +20,7 @@ public class TestBetterStringBuilder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Profiler.BeginSample("TestBetterStringBuilder");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterStringBuilder");
         bsb.Clear();
         bsb.Append(testCharArr);
         bsb.AppendLine("---");
@@ -45,7 +45,7 @@ public class TestBetterStringBuilder : MonoBehaviour {
         bsb.Insert(1, "7777777");
         bsb.Replace("77777","88888");
         bsb.Replace('5', '*');
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         Debug.Log(bsb.ToString());
     }
 }

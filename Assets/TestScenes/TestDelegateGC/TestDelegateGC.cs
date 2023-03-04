@@ -52,59 +52,59 @@ public class TestDelegateGC : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
         // 不使用泛型
-        Profiler.BeginSample("no cached");
+        UnityEngine.Profiling.Profiler.BeginSample("no cached");
         TestFun(DelegateFun); //每次调用产生104B垃圾
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("imp reflection covert cached");
+        UnityEngine.Profiling.Profiler.BeginSample("imp reflection covert cached");
         TestFun(mDelegate1 as TestDelegate); //无GC
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("reflection covert cached");
+        UnityEngine.Profiling.Profiler.BeginSample("reflection covert cached");
         TestFun(mDelegate2 as TestDelegate); //无GC
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("private cached");
+        UnityEngine.Profiling.Profiler.BeginSample("private cached");
         TestFun(mDelegate3); //无GC，推荐
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("static cached");
+        UnityEngine.Profiling.Profiler.BeginSample("static cached");
         TestFun(mDelegate5); //无GC
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         // 使用泛型，更加通用
-        Profiler.BeginSample("genericity no cached");
+        UnityEngine.Profiling.Profiler.BeginSample("genericity no cached");
         TestTFun(TDelegateFun, gameObject, "test", 1000);//每次调用产生104B垃圾
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("genericity cached");
+        UnityEngine.Profiling.Profiler.BeginSample("genericity cached");
         TestTFun(mDelegate4, gameObject, "test", 1000);// 无GC，更通用，极力推荐***********
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         // Sort测试
-        Profiler.BeginSample("sort original");
+        UnityEngine.Profiling.Profiler.BeginSample("sort original");
         mTestList.Sort();//无GC
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("sort no cached");
+        UnityEngine.Profiling.Profiler.BeginSample("sort no cached");
         TestSort(SortByXXX);//每次调用产生104B垃圾
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("sort cached");
+        UnityEngine.Profiling.Profiler.BeginSample("sort cached");
         TestSort(mDelegate6);//无GC
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("sort genericity fun no cached");
+        UnityEngine.Profiling.Profiler.BeginSample("sort genericity fun no cached");
         TestSort(TSortByXXX);//每次调用产生104B垃圾
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("sort genericity call&fun no cached");
+        UnityEngine.Profiling.Profiler.BeginSample("sort genericity call&fun no cached");
         TestSort(TSortByXXX);//每次调用产生104B垃圾
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("sort genericity call&fun cached");
+        UnityEngine.Profiling.Profiler.BeginSample("sort genericity call&fun cached");
         TestSort(mDelegate7);//无GC
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
     }
 
     private void TestFun(TestDelegate de)

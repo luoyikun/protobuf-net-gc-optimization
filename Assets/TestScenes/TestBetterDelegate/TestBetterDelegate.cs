@@ -58,7 +58,7 @@ public class TestBetterDelegate : MonoBehaviour
     void Update()
     {
         Debug.Log("===================BetterDelegate Callback===================");
-        Profiler.BeginSample("BetterDelegate Callback");
+        UnityEngine.Profiling.Profiler.BeginSample("BetterDelegate Callback");
         for (int i = 0; i < (isTestingCorrectness ? 10 : 10000); i++)
         {
             if (i % 3 == 0)
@@ -72,10 +72,10 @@ public class TestBetterDelegate : MonoBehaviour
                 bDelegate.Invoke((object)outputNames[i], 2222, outputNames[i]);
             }
         }
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         Debug.Log("===================Directly Call===================");
-        Profiler.BeginSample("Directly Call");
+        UnityEngine.Profiling.Profiler.BeginSample("Directly Call");
         for (int i = 0; i < (isTestingCorrectness ? 10 : 10000); i++)
         {
             if (i % 3 == 0)
@@ -87,10 +87,10 @@ public class TestBetterDelegate : MonoBehaviour
                 TestCallback(outputNames[i], 2222, outputNames[i], inputNames[i], i, inputNames[i]);
             }
         }
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         Debug.Log("===================Cache Delegate Genericity Callback===================");
-        Profiler.BeginSample("Cache Delegate Genericity Callback");
+        UnityEngine.Profiling.Profiler.BeginSample("Cache Delegate Genericity Callback");
         for (int i = 0; i < (isTestingCorrectness ? 10 : 10000); i++)
         {
             if (i % 3 == 0)
@@ -102,10 +102,10 @@ public class TestBetterDelegate : MonoBehaviour
                 TestDe(mDel2, outputNames[i], 2222, outputNames[i], inputNames[i], i, inputNames[i]);
             }
         }
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         Debug.Log("===================Cache Delegate Function Callback===================");
-        Profiler.BeginSample("Cache Delegate Function Callback");
+        UnityEngine.Profiling.Profiler.BeginSample("Cache Delegate Function Callback");
         for (int i = 0; i < (isTestingCorrectness ? 10 : 10000); i++)
         {
             if (i % 3 == 0)
@@ -117,10 +117,10 @@ public class TestBetterDelegate : MonoBehaviour
                 TestDeCall(mDel2, outputNames[i], 2222, outputNames[i], inputNames[i], i, inputNames[i]);
             }
         }
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         Debug.Log("===================No Cache Delegate Genericity Callback===================");
-        Profiler.BeginSample("No Cache Delegate Genericity Callback");
+        UnityEngine.Profiling.Profiler.BeginSample("No Cache Delegate Genericity Callback");
         for (int i = 0; i < (isTestingCorrectness ? 10 : 10000); i++)
         {
             if (i % 3 == 0)
@@ -132,7 +132,7 @@ public class TestBetterDelegate : MonoBehaviour
                 TestDe(TestCallback, outputNames[i], 2222, outputNames[i], inputNames[i], i, inputNames[i]);
             }
         }
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         if (callNum < 10)
         {

@@ -45,7 +45,7 @@ namespace CustomDataStruct
         }
         
         /// <summary>
-        /// 将Object装箱后的值拆箱并装入ValueObject
+        /// 将Object装箱后的值  拆箱并装入ValueObject
         /// </summary>
         /// <param name="valueObj">Object装箱后的值</param>
         /// <returns></returns>

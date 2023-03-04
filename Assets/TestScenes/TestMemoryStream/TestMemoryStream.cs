@@ -32,13 +32,13 @@ public class TestMemoryStream : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        Profiler.BeginSample("TestWriter");
+        UnityEngine.Profiling.Profiler.BeginSample("TestWriter");
         TestWriter();
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         Debug.Log(msTest.Position);
-        Profiler.BeginSample("TestReader");
+        UnityEngine.Profiling.Profiler.BeginSample("TestReader");
         TestReader();
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         IncreaseData();
         PrintData();
         byte[] bytes = msTest.GetBuffer();

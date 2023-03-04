@@ -481,7 +481,7 @@ namespace ProtoBuf.Serializers
             }
             bool checkForNull = !SupportNull;
             // TODO-GC：对于值类型的列表，这里严重GC
-            // 1）GeGetEnumerator产生GC40B
+            // 1）GeGetEnumerator产生GC40B：unity5.5版本后无gc
             // 2）每次GetCurrent产生GC20B
             foreach (object subItem in (IEnumerable)value)
             {

@@ -130,7 +130,7 @@ public class TestBetterLinkedList : MonoBehaviour
     void Update()
     {
         Debug.Log("TestBetterLinkedList.TestAddFirst\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestAddFirst");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestAddFirst");
         for (int i = 0; i < 10; i++)
         {
             TestAddFirst(mBetterLinkedList1, i);
@@ -138,47 +138,47 @@ public class TestBetterLinkedList : MonoBehaviour
             TestAddFirst(mBetterLinkedList3, mTestCustomStruct[i]);
             TestAddFirst(mBetterLinkedList4, mTestCustomClass[i]);
         }
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         LogList();
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestRemoveFirst\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestRemoveFirst");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestRemoveFirst");
         TestRemoveFirst(mBetterLinkedList1);
         TestRemoveFirst(mBetterLinkedList2);
         TestRemoveFirst(mBetterLinkedList3);
         TestRemoveFirst(mBetterLinkedList4);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         LogList();
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestRemoveLast\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestRemoveLast");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestRemoveLast");
         TestRemoveLast(mBetterLinkedList1);
         TestRemoveLast(mBetterLinkedList2);
         TestRemoveLast(mBetterLinkedList3);
         TestRemoveLast(mBetterLinkedList4);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         LogList();
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestRemoveValue<4>\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestRemoveValue<4>");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestRemoveValue<4>");
         TestRemoveValue(mBetterLinkedList1, 4);
         TestRemoveValue(mBetterLinkedList2, mTestString[4]);
         TestRemoveValue(mBetterLinkedList3, mTestCustomStruct[4]);
         TestRemoveValue(mBetterLinkedList4, mTestCustomClass[4]);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         LogList();
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestFind <4>\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestFind <4>");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestFind <4>");
         BetterLinkedListNode<int> nodeInt = TestFind(mBetterLinkedList1, 4);
         BetterLinkedListNode<string> nodeString = TestFind(mBetterLinkedList2, mTestString[4]);
         BetterLinkedListNode<CustomStruct> nodeStruct = TestFind(mBetterLinkedList3, mTestCustomStruct[4]);
         BetterLinkedListNode<CustomClass> nodeClass = TestFind(mBetterLinkedList4, mTestCustomClass[4]);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         Debug.Log("nodeInt : " + nodeInt + "\n");
         Debug.Log("nodeString : " + nodeString + "\n");
@@ -187,12 +187,12 @@ public class TestBetterLinkedList : MonoBehaviour
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestFind <6>\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestFind <6>");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestFind <6>");
         nodeInt = TestFind(mBetterLinkedList1, 6);
         nodeString = TestFind(mBetterLinkedList2, mTestString[6]);
         nodeStruct = TestFind(mBetterLinkedList3, mTestCustomStruct[6]);
         nodeClass = TestFind(mBetterLinkedList4, mTestCustomClass[6]);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         Debug.Log("nodeInt : " + nodeInt.Value + "\n");
         Debug.Log("nodeString : " + nodeString.Value + "\n");
@@ -201,75 +201,75 @@ public class TestBetterLinkedList : MonoBehaviour
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestAddBefore\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestAddBefore");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestAddBefore");
         TestAddBefore(mBetterLinkedList1, nodeInt, 99);
         TestAddBefore(mBetterLinkedList2, nodeString, mTestString[99]);
         TestAddBefore(mBetterLinkedList3, nodeStruct, mTestCustomStruct[99]);
         TestAddBefore(mBetterLinkedList4, nodeClass, mTestCustomClass[99]);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         LogList();
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestAddAfter\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestAddAfter");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestAddAfter");
         TestAddAfter(mBetterLinkedList1, nodeInt, 99);
         TestAddAfter(mBetterLinkedList2, nodeString, mTestString[99]);
         TestAddAfter(mBetterLinkedList3, nodeStruct, mTestCustomStruct[99]);
         TestAddAfter(mBetterLinkedList4, nodeClass, mTestCustomClass[99]);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         LogList();
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestRemoveNode\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestRemoveNode");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestRemoveNode");
         TestRemoveNode(mBetterLinkedList1, nodeInt);
         TestRemoveNode(mBetterLinkedList2, nodeString);
         TestRemoveNode(mBetterLinkedList3, nodeStruct);
         TestRemoveNode(mBetterLinkedList4, nodeClass);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         LogList();
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestAddLast\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestAddLast");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestAddLast");
         TestAddLast(mBetterLinkedList1, 98);
         TestAddLast(mBetterLinkedList2, mTestString[98]);
         TestAddLast(mBetterLinkedList3, mTestCustomStruct[98]);
         TestAddLast(mBetterLinkedList4, mTestCustomClass[98]);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         LogList();
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestGetEnumerator\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestGetEnumerator");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestGetEnumerator");
         TestGetEnumerator(mBetterLinkedList1);
         TestGetEnumerator(mBetterLinkedList2);
         TestGetEnumerator(mBetterLinkedList3);
         TestGetEnumerator(mBetterLinkedList4);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestForeach\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestForeach");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestForeach");
         TestForeach(mBetterLinkedList1);
         TestForeach(mBetterLinkedList2);
         TestForeach(mBetterLinkedList3);
         TestForeach(mBetterLinkedList4);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestClear\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestClear");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestClear");
         TestClear(mBetterLinkedList1);
         TestClear(mBetterLinkedList2);
         TestClear(mBetterLinkedList3);
         TestClear(mBetterLinkedList4);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         LogList();
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestAddLast\n");
-        Profiler.BeginSample("TestBetterLinkedList.TestAddLast");
+        UnityEngine.Profiling.Profiler.BeginSample("TestBetterLinkedList.TestAddLast");
         for (int i = 50; i < 60; i++)
         {
             TestAddLast(mBetterLinkedList1, i);
@@ -277,7 +277,7 @@ public class TestBetterLinkedList : MonoBehaviour
             TestAddLast(mBetterLinkedList3, mTestCustomStruct[i]);
             TestAddLast(mBetterLinkedList4, mTestCustomClass[i]);
         }
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         LogList();
 
         TestClear(mBetterLinkedList1);
@@ -286,7 +286,7 @@ public class TestBetterLinkedList : MonoBehaviour
         TestClear(mBetterLinkedList4);
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestHugeAddFirst\n");
-        Profiler.BeginSample("TestList.TestHugeAddFirst");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestHugeAddFirst");
         for (int i = 0; i < 999; i++)
         {
             TestAddFirst(mBetterLinkedList1, i % 100);
@@ -294,7 +294,7 @@ public class TestBetterLinkedList : MonoBehaviour
             TestAddFirst(mBetterLinkedList3, mTestCustomStruct[i % 100]);
             TestAddFirst(mBetterLinkedList4, mTestCustomClass[i % 100]);
         }
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         Debug.Log("mBetterLinkedList1 Count = " + mBetterLinkedList1.Count);
         Debug.Log("mBetterLinkedList2 Count = " + mBetterLinkedList2.Count);
         Debug.Log("mBetterLinkedList3 Count = " + mBetterLinkedList3.Count);
@@ -302,12 +302,12 @@ public class TestBetterLinkedList : MonoBehaviour
 
         Debug.Log("\n*********************************\n");
         Debug.Log("TestBetterLinkedList.TestHugeClear\n");
-        Profiler.BeginSample("TestList.TestHugeClear");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestHugeClear");
         TestClear(mBetterLinkedList1);
         TestClear(mBetterLinkedList2);
         TestClear(mBetterLinkedList3);
         TestClear(mBetterLinkedList4);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
         LogList();
     }
     

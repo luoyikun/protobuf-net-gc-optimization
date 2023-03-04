@@ -74,56 +74,56 @@ public class TestValueObject : MonoBehaviour
     {
         for (int i = 0; i < (isTestingCorrectness ? 10 : 10000); i++)
         {
-            Profiler.BeginSample("ValueObject<int> Using");
+            UnityEngine.Profiling.Profiler.BeginSample("ValueObject<int> Using");
             TestUsing(mTestIntList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            Profiler.BeginSample("ValueObject<int> Dispose");
+            UnityEngine.Profiling.Profiler.BeginSample("ValueObject<int> Dispose");
             TestDispose(mTestIntList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            Profiler.BeginSample("ValueObject<int> Static");
+            UnityEngine.Profiling.Profiler.BeginSample("ValueObject<int> Static");
             TestStatic(mTestIntList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            Profiler.BeginSample("Object<int> Boxing");
+            UnityEngine.Profiling.Profiler.BeginSample("Object<int> Boxing");
             TestBoxing(mTestIntList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            Profiler.BeginSample("ValueObject<int> Return");
+            UnityEngine.Profiling.Profiler.BeginSample("ValueObject<int> Return");
             TestReturn(mTestIntList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            Profiler.BeginSample("ValueObject<int> ToObject");
+            UnityEngine.Profiling.Profiler.BeginSample("ValueObject<int> ToObject");
             TestToObject(mTestIntList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
         }
 
         for (int i = 0; i < (isTestingCorrectness ? 10 : 10000); i++)
         {
-            Profiler.BeginSample("ValueObject<struct> Using");
+            UnityEngine.Profiling.Profiler.BeginSample("ValueObject<struct> Using");
             TestUsing(mTestStructList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            Profiler.BeginSample("ValueObject<struct> Dispose");
+            UnityEngine.Profiling.Profiler.BeginSample("ValueObject<struct> Dispose");
             TestDispose(mTestStructList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            Profiler.BeginSample("ValueObject<struct> Static");
+            UnityEngine.Profiling.Profiler.BeginSample("ValueObject<struct> Static");
             TestStatic(mTestStructList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            Profiler.BeginSample("Object<struct> Boxing");
+            UnityEngine.Profiling.Profiler.BeginSample("Object<struct> Boxing");
             TestBoxing(mTestStructList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            Profiler.BeginSample("ValueObject<struct> Return");
+            UnityEngine.Profiling.Profiler.BeginSample("ValueObject<struct> Return");
             TestReturn(mTestStructList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            Profiler.BeginSample("ValueObject<struct> ToObject");
+            UnityEngine.Profiling.Profiler.BeginSample("ValueObject<struct> ToObject");
             TestToObject(mTestStructList[i]);
-            Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
         }
 
         // 用于测试内存泄露检测功能

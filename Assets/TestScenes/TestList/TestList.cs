@@ -126,100 +126,100 @@ public class TestList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Profiler.BeginSample("TestList.TestAdd");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestAdd");
         TestAdd(mList1, 2);
         TestAdd(mList2, "test2");
         TestAdd(mList3, new CustomStruct(2, "test2"));
         TestAdd(mList4, mTestClass1);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         LogList(mList1);
         LogList(mList2);
         LogList(mList3);
         LogList(mList4);
 
-        Profiler.BeginSample("TestList.TestAdd");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestAdd");
         TestAdd(mList1, 1);
         TestAdd(mList2, "test1");
         TestAdd(mList3, new CustomStruct(1, "test1"));
         TestAdd(mList4, mTestClass2);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         LogList(mList1);
         LogList(mList2);
         LogList(mList3);
         LogList(mList4);
 
-        Profiler.BeginSample("TestList.TestSort(no cache delegate)");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestSort(no cache delegate)");
         // 对于下面的每次调用，产生104B垃圾
         TestSort(mList1, TestSort);
         TestSort(mList2, TestSort);
         TestSort(mList3, TestSort);
         TestSort(mList4, TestSort);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("TestList.TestSort(cached delegate)");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestSort(cached delegate)");
         // 正确使用方式，无GC
         TestSort(mList1, mSortInt);
         TestSort(mList2, mSortString);
         TestSort(mList3, mSortStruct);
         TestSort(mList4, mSortClass);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("TestList.TestSort(original)");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestSort(original)");
         // 正确使用方式，无GC
         mList1.Sort();
         mList2.Sort();
         mList3.Sort();
         mList4.Sort();
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         LogList(mList1);
         LogList(mList2);
         LogList(mList3);
         LogList(mList4);
 
-        Profiler.BeginSample("TestList.TestGetEnumerator");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestGetEnumerator");
         // 无GC
         TestGetEnumerator(mList1);
         TestGetEnumerator(mList2);
         TestGetEnumerator(mList3);
         TestGetEnumerator(mList4);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("TestList.TestForeach");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestForeach");
         // 对于下面的每次调用，产生40B垃圾
         TestForeach(mList1);
         TestForeach(mList2);
         TestForeach(mList3);
         TestForeach(mList4);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("TestList.TestRemove");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestRemove");
         TestRemove(mList1, 1);
         TestRemove(mList2, "test1");
         TestRemove(mList3, new CustomStruct(1, "test1"));
         TestRemove(mList4, mTestClass2);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         LogList(mList1);
         LogList(mList2);
         LogList(mList3);
         LogList(mList4);
 
-        Profiler.BeginSample("TestList.TestClear");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestClear");
         TestClear(mList1);
         TestClear(mList2);
         TestClear(mList3);
         TestClear(mList4);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
         LogList(mList1);
         LogList(mList2);
         LogList(mList3);
         LogList(mList4);
 
-        Profiler.BeginSample("TestList.TestHugeAdd");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestHugeAdd");
         for (int i = 0; i < 999; i++)
         {
             TestAdd(mList1, i);
@@ -227,9 +227,9 @@ public class TestList : MonoBehaviour
             TestAdd(mList3, new CustomStruct(i, "TestHuge"));
             TestAdd(mList4, mTestClass1);
         }
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("TestList.TestHugeAdd&Remove");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestHugeAdd&Remove");
         for (int i = 0; i < 999; i++)
         {
             TestAdd(mList1, i);
@@ -241,42 +241,42 @@ public class TestList : MonoBehaviour
             mList3.RemoveAt(mList3.Count - 1);
             mList4.RemoveAt(mList4.Count - 1);
         }
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("TestList.TestHugeInsertHead");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestHugeInsertHead");
         mList1.Insert(0, 0);
         mList2.Insert(0, "0");
         mList3.Insert(0, new CustomStruct(0, "0"));
         mList4.Insert(0, mTestClass1);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("TestList.TestHugeSort");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestHugeSort");
         mList1.Sort();
         mList2.Sort();
         mList3.Sort();
         mList4.Sort();
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("TestList.TestHugeRemoveHead");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestHugeRemoveHead");
         mList1.RemoveAt(0);
         mList2.RemoveAt(0);
         mList3.RemoveAt(0);
         mList4.RemoveAt(0);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("TestList.TestHugeRemoveTail");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestHugeRemoveTail");
         mList1.RemoveAt(mList1.Count - 1);
         mList2.RemoveAt(mList2.Count - 1);
         mList3.RemoveAt(mList3.Count - 1);
         mList4.RemoveAt(mList4.Count - 1);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
 
-        Profiler.BeginSample("TestList.TestHugeClear");
+        UnityEngine.Profiling.Profiler.BeginSample("TestList.TestHugeClear");
         TestClear(mList1);
         TestClear(mList2);
         TestClear(mList3);
         TestClear(mList4);
-        Profiler.EndSample();
+        UnityEngine.Profiling.Profiler.EndSample();
     }
 
     void TestAdd<T>(List<T> list, T item)
