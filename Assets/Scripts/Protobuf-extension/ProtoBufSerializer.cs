@@ -2,6 +2,7 @@
 using CustomDataStruct;
 using ProtoBuf.Serializers;
 using System.IO;
+using UnityEngine;
 
 /// <summary>
 /// 说明：ProtoBuf初始化、缓存等管理；序列化、反序列化等封装
@@ -63,6 +64,7 @@ public class ProtoBufSerializer : Singleton<ProtoBufSerializer>
         ProtoFactory.AddProtoPool(typeof(ntf_battle_frame_data.one_slot), new OneSlotPool());
         ProtoFactory.AddProtoPool(typeof(ntf_battle_frame_data.cmd_with_frame), new CmdWithFramePool());
         ProtoFactory.AddProtoPool(typeof(one_cmd), new OneCmdPool());
+        PublicFunc.Log("自定义缓存池以避免ProtoBuf创建实例");
     }
 
     void ClearProtoPool()

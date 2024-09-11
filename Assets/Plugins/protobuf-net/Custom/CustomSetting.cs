@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// 说明：某类型与在该类型上自定义Serializer的映射表
@@ -37,6 +38,7 @@ namespace ProtoBuf.Serializers
             ICustomProtoSerializer customSerializer;
             if (customSerializerMap.TryGetValue(targetType, out customSerializer))
             {
+                PublicFunc.Log($"找到自定义序列化{targetType.FullName}");
                 return customSerializer;
             }
             return null;

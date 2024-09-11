@@ -3,6 +3,7 @@ using ProtoBuf.Serializers;
 
 namespace battle
 {
+    //纯手写解析，只能针对项目频繁的，例如视野包，帧命令等
     public sealed class NtfBattleFrameDataDecorator : ICustomProtoSerializer
     {
         public void SetValue(object target, object value, int fieldNumber)
@@ -16,6 +17,7 @@ namespace battle
             switch (fieldNumber)
             {
                 case 1:
+                    //ProtoMember(1)
                     data.time = ValueObject.Value<int>(value);
                     break;
                 case 3:

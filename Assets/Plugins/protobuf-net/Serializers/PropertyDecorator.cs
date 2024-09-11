@@ -67,6 +67,7 @@ namespace ProtoBuf.Serializers
         public override void Write(object value, ProtoWriter dest)
         {
             Helpers.DebugAssert(value != null);
+            //使用了反射
             value = property.GetValue(value, null);
             if (value != null)
             {

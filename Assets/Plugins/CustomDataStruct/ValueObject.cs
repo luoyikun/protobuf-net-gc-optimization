@@ -243,10 +243,10 @@ namespace CustomDataStruct
             public abstract object ObjectValue();
         }
 
-        // 免GC装箱
+        // 免GC装箱，用引用类型放入到对象池中，再保存类成员，T为值类型（int，float等），value为值
         private sealed class TypeObj<T> : TypeObjBase, IRelease
         {
-            public T value;
+            public T value; //值类型
             public override object ObjectValue()
             {
                 return value;

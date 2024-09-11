@@ -47,6 +47,7 @@ public sealed class ProtoFactory
         IProtoPool pool = null;
         if (poolMap.TryGetValue(protoType, out pool))
         {
+            PublicFunc.Log($"从缓冲池中取对象{protoType.FullName}");
             protoData = pool.Get();
         }
         return protoData;
